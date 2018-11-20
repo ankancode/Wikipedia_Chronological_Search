@@ -1,0 +1,57 @@
+<html>
+   <head>
+		<title>Wikipedia Chronological Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <link href='custom.css' rel='stylesheet' type='text/css'>
+   </head>
+
+
+   <body>
+		<div class="container">
+			<div style="margin-top:20px"></div>
+			<div class="row">
+				<h2 style="color:Green">Wikipedia Chronological Search</h2>
+			</div>
+			<div style="margin-top:20px"></div>
+		    <form action = "http://localhost:5000/result" method = "POST">
+		        <div class="row">
+		                <div class="col-md-4">
+		                    <div class="form-group form-group-sm">
+		                        <label for="Phrase" class="control-label" style="color:Black">Phrase</label>
+		                        <input type="text" class="form-control" id="Phrase" name = "Phrase" placeholder="Phrase" required="true">
+		                    </div>
+		                </div>
+		        </div>
+
+		        <div class="row">        
+		                <div class="col-md-4">
+		                    <div class="form-group">
+		                        <label for="Number_of_Events" class="control-label" style="color:Black">Number of Events</label>
+		                        <input type="text" class="form-control" id="Number_of_Events" name = "Number_of_Events" placeholder="Number of Events" required="true">
+		                    </div>
+		                </div>
+		        </div>
+		        <div style="margin-top:10px"></div>
+		        <div class="row">
+		             <div class="col-xs-3">
+		                    <button type="submit" class="btn btn-primary">Search</button>
+		                </div>
+		        </div>
+		    </form>
+
+		    {% with messages = get_flashed_messages() %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li style="color:Red">{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+
+		</div>
+	</body>
+</html>
